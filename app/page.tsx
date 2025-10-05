@@ -1,103 +1,91 @@
+"use client";
+
+import React from "react";
+import Link from "next/link";
 import Image from "next/image";
+import HeroImage from "@/public/images/IMG_9910-removebg-preview.png";
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const handleDownloadCV = () => {
+    const link = document.createElement("a");
+    link.href = "/assets/CharlesEromoseCV.pdf";
+    link.download = "Charles_Eromose_CV.pdf";
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+  // Lightweight code display component
+  const CodeDisplay = () => (
+    <div className="w-full max-w-lg sm:max-w-[90%] md:max-w-4xl lg:max-w-5xl max-[375px]:max-w-[90%] max-[375px]:mx-auto">
+      <div className="code-display overflow-x-auto rounded-lg max-[375px]:p-2 bg-slate-800/90 p-4">
+        <pre className="text-xs sm:text-sm text-gray-200 font-mono whitespace-pre overflow-x-auto">
+          {`const aboutMe = {
+  name: "Charles Eromose",
+  role: "Full Stack Engineer",
+  experience: "4+ years",
+  stack: {
+    frontend: ["React", "Next.js", "TypeScript"],
+    backend: ["Django", "Node.js", "Python"],
+    database: ["PostgreSQL", "MySQL"],
+    cloud: ["AWS", "Vercel"]
+  },
+  availability: "Open to opportunities 🚀"
+};`}
+        </pre>
+      </div>
     </div>
+  );
+
+  return (
+    <section id="home" className="section flex items-center">
+      <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between px-3 sm:px-4 lg:px-8 h-full">
+        {/* Left Side - Content */}
+        <div className="w-full lg:w-[53%] flex flex-col items-center lg:items-start text-center lg:text-left justify-center mt-10 lg:mt-20 order-2 lg:order-1">
+          <p className="text-sm sm:text-base text-gray-800 dark:text-gray-200 font-semibold tracking-wider max-[375px]:text-xs animate-fade-in">
+            Hello There!
+          </p>
+
+          <h1 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-800 dark:text-gray-200 mb-2 sm:mb-3 lg:mb-4 leading-tight max-[375px]:text-xl max-[375px]:leading-snug whitespace-nowrap">
+            I&apos;m <span className="text-[#003366] dark:text-blue-400">Charles Eromose</span>,
+          </h1>
+
+          {/* Code Block */}
+          <div className="animate-fade-in-up">
+            <CodeDisplay />
+          </div>
+
+          {/* Buttons */}
+          <div className="mt-4 mb-6 flex sm:flex-row gap-4 justify-center lg:justify-start max-[375px]:flex-col max-[375px]:gap-2">
+            <Link
+              href="/portfolio"
+              className="btn text-sm sm:text-base md:text-lg px-4 py-2 max-[375px]:w-full hover:scale-105 transition-transform duration-200"
+            >
+              View My Works
+            </Link>
+
+            <button
+              onClick={handleDownloadCV}
+              className="relative inline-flex items-center justify-center btn border border-blue-600 text-[#003366] dark:text-blue-400 group overflow-hidden bg-gray-300/30 backdrop-blur-md shadow-lg dark:bg-gray-800/50 text-sm sm:text-base md:text-lg px-4 py-2 max-[375px]:w-full hover:scale-105 transition-transform duration-200"
+            >
+              <span className="relative z-10">Download CV</span>
+            </button>
+          </div>
+        </div>
+
+        {/* Right Side - Image */}
+        <div className="w-full lg:w-1/2 flex justify-center lg:justify-end order-1 lg:order-2 animate-fade-in">
+          <Image
+            src={HeroImage}
+            alt="Charles Eromose"
+            width={600}
+            height={700}
+            className="max-w-[70%] sm:max-w-[60%] md:max-w-[55%] lg:max-w-[80%] h-auto drop-shadow-lg max-[375px]:max-w-[75%] max-[375px]:mt-4"
+            priority
+            placeholder="blur"
+          />
+        </div>
+      </div>
+    </section>
   );
 }
