@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { FaHeart, FaUser, FaGlobe, FaCloud } from "react-icons/fa";
 
 // Define the project data structure
 interface ProjectItem {
@@ -10,71 +11,72 @@ interface ProjectItem {
   icon: React.ReactNode;
 }
 
-// Mock data - replace with your actual data
+// Use your actual data from dummydata.js
 const project: ProjectItem[] = [
   {
     id: 1,
-    num: 10,
-    title: "Projects Completed",
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
-      </svg>
-    ),
+    num: 65,
+    title: "HAPPY CLIENTS",
+    icon: <FaHeart className="text-[#003366] dark:text-blue-400 text-2xl md:text-3xl" />,
   },
   {
     id: 2,
-    num: 4,
-    title: "Years Experience",
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-    ),
+    num: 101,
+    title: "PROJECTS COMPLETED",
+    icon: <FaUser className="text-[#003366] dark:text-blue-400 text-2xl md:text-3xl" />,
   },
   {
     id: 3,
-    num: 15,
-    title: "Technologies",
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-      </svg>
-    ),
+    num: 108,
+    title: "FILES DOWNLOADED",
+    icon: <FaGlobe className="text-[#003366] dark:text-blue-400 text-2xl md:text-3xl" />,
   },
   {
     id: 4,
-    num: 5,
-    title: "Happy Clients",
-    icon: (
-      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5" />
-      </svg>
-    ),
+    num: 1446,
+    title: "LINES OF CODE",
+    icon: <FaCloud className="text-[#003366] dark:text-blue-400 text-2xl md:text-3xl" />,
   },
 ];
 
-// Lightweight counter component
+// Lightweight counter component with intersection observer
 const CountUp = ({ end, duration = 3 }: { end: number; duration?: number }) => {
   const [count, setCount] = React.useState(0);
+  const [hasStarted, setHasStarted] = React.useState(false);
+  const ref = React.useRef<HTMLSpanElement>(null);
 
   React.useEffect(() => {
-    let start = 0;
-    const increment = end / (duration * 60); // 60fps
-    const timer = setInterval(() => {
-      start += increment;
-      if (start >= end) {
-        setCount(end);
-        clearInterval(timer);
-      } else {
-        setCount(Math.floor(start));
-      }
-    }, 1000 / 60);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !hasStarted) {
+          setHasStarted(true);
+          let start = 0;
+          const increment = end / (duration * 60); // 60fps
+          
+          const timer = setInterval(() => {
+            start += increment;
+            if (start >= end) {
+              setCount(end);
+              clearInterval(timer);
+            } else {
+              setCount(Math.floor(start));
+            }
+          }, 1000 / 60);
 
-    return () => clearInterval(timer);
-  }, [end, duration]);
+          return () => clearInterval(timer);
+        }
+      },
+      { threshold: 0.5 }
+    );
 
-  return <span>{count}+</span>;
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
+  }, [end, duration, hasStarted]);
+
+  return <span ref={ref}>{count}+</span>;
 };
 
 export default function Counter() {
