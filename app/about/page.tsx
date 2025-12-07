@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Counter from "@/components/Counter";
-import AbtIMG from "@/public/images/IMG_8173.jpg";
+// import AbtIMG from "@/public/images/IMG_8173.jpg";
 
 export default function About() {
   return (
@@ -20,7 +20,7 @@ export default function About() {
         >
           <div className="max-w-[450px] sm:max-w-[400px] max-[375px]:max-w-[260px]">
             <Image
-              src={AbtIMG}
+              src="/image/IMG_8173.jpg"
               alt="Charles Eromose"
               width={450}
               height={600}

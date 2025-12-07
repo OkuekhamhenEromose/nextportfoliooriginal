@@ -22,15 +22,8 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Charles Eromose - Full Stack Engineer",
-  description: "Full Stack Engineer with 4+ years of experience in React, Next.js, Django, and cloud solutions",
-  // icons: {
-  //   icon: [
-  //     {
-  //       url: '/favicon.ico',
-  //       sizes: 'any',
-  //     }
-  //   ],
-  // },
+  description:
+    "Full Stack Engineer with 4+ years of experience in React, Next.js, Django, and cloud solutions",
 };
 
 export default function RootLayout({
@@ -38,7 +31,9 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${poppins.variable} ${inter.variable} antialiased bg-white dark:bg-[#1c1c1e] transition-colors duration-300`}>
+      <body
+        className={`${poppins.variable} ${inter.variable} antialiased bg-white dark:bg-[#1c1c1e] transition-colors duration-300`}
+      >
         <ThemeProvider>
           <Header />
           <main className="p-4">{children}</main>
