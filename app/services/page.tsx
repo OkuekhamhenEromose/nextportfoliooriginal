@@ -8,9 +8,7 @@ export default function Services() {
     <section className="section dark:bg-darkbg transition-colors duration-300">
       <div className="container mt-12 mx-auto px-3 sm:px-4 flex flex-col justify-between h-full py-4">
         {/* Heading */}
-        <div
-          className="text-center animate-fade-in-down"
-        >
+        <div className="text-center animate-fade-in-down">
           <h1 className="h1 mb-2 text-[#003366] dark:text-gray-200">
             Services
           </h1>
@@ -94,15 +92,14 @@ export default function Services() {
                   {item.desc}
                 </p>
 
-                {/* View Project */}
+                {/* View Project - Only shows on hover */}
                 <div
                   className="
                     text-center mt-3 sm:mt-4 
                     opacity-0 group-hover:opacity-100 
-                    transition-opacity duration-300
-                    animate-service-link
+                    transform group-hover:translate-y-0 -translate-y-2
+                    transition-all duration-300 ease-out
                   "
-                  style={{ animationDelay: `${900 + index * 100}ms` }}
                 >
                   <Link
                     href="/portfolio"

@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import Counter from "@/components/Counter";
-import AbtIMG from "@/public/images/IMG_9910-removebg-preview.png";
+import AbtIMG from "@/public/images/IMG_8173.jpg";
 
 export default function About() {
   return (

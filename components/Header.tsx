@@ -71,8 +71,8 @@ const Header = () => {
           <Image
             src={Logo}
             alt="portfolio-logo"
-            width={65}
-            height={65}
+            // width={65}
+            // height={65}
             className="w-full h-auto"
             priority
           />

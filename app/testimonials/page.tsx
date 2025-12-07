@@ -160,11 +160,9 @@ const Testimonials = () => {
                 <Image
                   src={company.logo}
                   alt={company.name}
-                  width={80}
-                  height={40}
-                  className={`object-contain hover:grayscale-0 transition-all duration-300 hover:scale-110 ${
-                    company.name === "Kuda" ? "h-16 sm:h-20" : "h-8 sm:h-12"
-                  } grayscale opacity-70 hover:opacity-100`}
+                  className={`object-contain hover:grayscale-0 transition-all duration-300 ${
+                    company.name === "Spotify" ? "h-36" : "h-12"
+                  }`}
                 />
               </div>
             ))}

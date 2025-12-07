@@ -4,6 +4,7 @@ import Image3 from "@/public/images/chtravels.png";
 import Image4 from "@/public/images/realestate-img.png";
 import Image5 from "@/public/images/Screenshot 2025-09-21 164622.png";
 import Image6 from "@/public/images/portfolio-img.png";
+import Image7 from "@/public/images/ethahospital.png";
 
 export interface PortfolioProject {
   id: number;
@@ -70,11 +71,20 @@ export const portfolioProjects: PortfolioProject[] = [
     demoLink: "https://subtle-blini-446f27.netlify.app/",
     githubLink: "https://github.com/OkuekhamhenEromose/blogfrontcd",
   },
+  {
+    id: 7,
+    title: "EthaHospital App",
+    description: "Etta-Atlantic Memorial Hospital clone mimicking the great hospital website in design and animation.",
+    category: "Frontend",
+    image: Image7,
+    demoLink: "https://ettahospitalclone.vercel.app/",
+    githubLink: "https://github.com/OkuekhamhenEromose/hospitaltypescriptreact",
+  },
 ];
 
 export const projectCategories = [
   { id: "all", name: "All Projects", count: 6 },
-  { id: "Frontend", name: "Frontend", count: 3 },
+  { id: "Frontend", name: "Frontend", count: 4 },
   { id: "Backend", name: "Backend", count: 2 },
   { id: "Full-Stack", name: "Full-Stack", count: 1 },
 ];

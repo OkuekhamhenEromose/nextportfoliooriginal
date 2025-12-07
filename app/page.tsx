@@ -78,8 +78,6 @@ export default function Home() {
           <Image
             src={HeroImage}
             alt="Charles Eromose"
-            width={600}
-            height={700}
             className="max-w-[70%] sm:max-w-[60%] md:max-w-[55%] lg:max-w-[80%] h-auto drop-shadow-lg max-[375px]:max-w-[75%] max-[375px]:mt-4"
             priority
             placeholder="blur"

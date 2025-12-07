@@ -9,31 +9,72 @@ interface SocialsProps {
 
 const Socials: React.FC<SocialsProps> = ({ className = "", isVertical = false }) => {
   const socialLinks = [
-    { icon: <ImFacebook />, href: "https://facebook.com", label: "Facebook" },
-    { icon: <ImTwitter />, href: "https://twitter.com", label: "Twitter" },
-    { icon: <ImGithub />, href: "https://github.com", label: "GitHub" },
-    { icon: <ImLinkedin />, href: "https://linkedin.com", label: "LinkedIn" },
+    {
+      href: "https://www.facebook.com/eromose.eromose.1",
+      icon: ImFacebook,
+      color: "text-[#3b5998]",
+      label: "Facebook",
+    },
+    {
+      href: "https://x.com/EhiEromoCharles",
+      icon: ImTwitter,
+      color: "text-[#55acee]",
+      label: "Twitter",
+    },
+    {
+      href: "https://github.com/OkuekhamhenEromose",
+      icon: ImGithub,
+      color: "text-[#181616] dark:text-gray-300",
+      label: "GitHub",
+    },
+    {
+      href: "https://www.linkedin.com/in/eromosele-charles-152181337/",
+      icon: ImLinkedin,
+      color: "text-[#007bb6]",
+      label: "LinkedIn",
+    },
   ];
 
   return (
-    <div className={`${className} ${isVertical ? 'flex-col' : 'flex-row'} flex ${isVertical ? 'gap-1' : 'gap-4'} items-center`}>
-      {socialLinks.map((social, index) => (
-        <Link
-          key={social.label}
-          href={social.href}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="
-            text-gray-600 dark:text-gray-400 hover:text-[#003366] dark:hover:text-blue-400
-            transition-all duration-300 transform hover:scale-110
-            animate-social-icon
-          "
-          style={{ animationDelay: `${index * 100}ms` }}
-          aria-label={social.label}
-        >
-          <span className="text-lg">{social.icon}</span>
-        </Link>
-      ))}
+    <div className={className}>
+      <ul
+        className={`flex ${isVertical ? "flex-col gap-y-2" : "gap-x-3"} items-center justify-center`}
+      >
+        {socialLinks.map((social, index) => {
+          const IconComponent = social.icon;
+          return (
+            <li
+              key={social.label}
+              className={social.color}
+            >
+              <Link
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`
+                  ${
+                    isVertical 
+                      ? "flex items-center gap-3 p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 w-full" 
+                      : "flex items-center justify-center p-3 rounded-full hover:bg-gray-100 dark:hover:bg-gray-700"
+                  } 
+                  transition-colors duration-300
+                  transform hover:scale-110 transition-transform duration-300
+                  animate-social-icon
+                `}
+                style={{ animationDelay: `${index * 100}ms` }}
+                aria-label={social.label}
+              >
+                <IconComponent className="text-2xl" />
+                {isVertical && (
+                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+                    {social.label}
+                  </span>
+                )}
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
     </div>
   );
 };

@@ -4,6 +4,11 @@
 
 /* @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"); */
 
+/* Restore browser default margin like React */
+/* body {
+  margin: 8px;
+} */
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -523,3 +528,15 @@
 .animate-fade-in-right {
   animation: fadeInRight 0.7s ease-out both;
 }
+
+/* nextjs-turbopack-overlay,
+next-route-announcer,
+#__next-route-announcer,
+#__next-scripts {
+  display: none !important;
+} */
+/* 
+body > div[style*="position: fixed"],
+body > nextjs-turbopack-overlay {
+  display: none !important;
+} */

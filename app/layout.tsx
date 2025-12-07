@@ -23,14 +23,14 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Charles Eromose - Full Stack Engineer",
   description: "Full Stack Engineer with 4+ years of experience in React, Next.js, Django, and cloud solutions",
-  icons: {
-    icon: [
-      {
-        url: '/favicon.ico',
-        sizes: 'any',
-      }
-    ],
-  },
+  // icons: {
+  //   icon: [
+  //     {
+  //       url: '/favicon.ico',
+  //       sizes: 'any',
+  //     }
+  //   ],
+  // },
 };
 
 export default function RootLayout({
@@ -41,7 +41,7 @@ export default function RootLayout({
       <body className={`${poppins.variable} ${inter.variable} antialiased`}>
         <ThemeProvider>
           <Header />
-          <main className="pt-[16px] lg:pt-[12px]">{children}</main>
+          <main className="p-4">{children}</main>
         </ThemeProvider>
       </body>
     </html>
