@@ -38,7 +38,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${poppins.variable} ${inter.variable} antialiased`}>
+      <body className={`${poppins.variable} ${inter.variable} antialiased bg-white dark:bg-[#1c1c1e] transition-colors duration-300`}>
         <ThemeProvider>
           <Header />
           <main className="p-4">{children}</main>

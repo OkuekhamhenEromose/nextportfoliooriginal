@@ -68,7 +68,7 @@ const MobileNav = () => {
       {/* Backdrop */}
       {openMenu && (
         <div 
-          className="fixed inset-0 bg-black bg-opacity-50 z-40 animate-fade-in"
+          className="fixed inset-0 bg-opacity-50 z-40 animate-fade-in"
           onClick={() => setOpenMenu(false)}
         />
       )}
