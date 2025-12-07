@@ -25,7 +25,6 @@ export default function About() {
               width={450}
               height={600}
               className="w-full h-auto object-cover rounded-lg shadow-lg"
-              placeholder="blur"
               priority
             />
           </div>

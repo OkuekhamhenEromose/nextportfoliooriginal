@@ -26,7 +26,7 @@ const Skills = () => {
   const duplicatedSkills = [...skills, ...skills, ...skills];
 
   return (
-    <section className="w-full bg-white dark:bg-darkbg py-4 transition-colors duration-300 mt-8">
+    <section className="w-full bg-white dark:bg-[#1c1c1e] py-4 transition-colors duration-300 mt-8">
       <div className="container mx-auto px-3 sm:px-4">
         <h2 className="h2 text-center mb-4 sm:mb-6 text-[#003366] dark:text-gray-200 text-lg sm:text-xl animate-fade-in-down">
           Technologies I Work With
