@@ -5,13 +5,14 @@ import Image4 from "@/public/images/realestate-img.png";
 import Image5 from "@/public/images/Screenshot 2025-09-21 164622.png";
 import Image6 from "@/public/images/portfolio-img.png";
 import Image7 from "@/public/images/ethahospital.png";
+import { StaticImageData } from "next/image";
 
 export interface PortfolioProject {
   id: number;
   title: string;
   description: string;
   category: string;
-  image: any;
+  image: StaticImageData;
   demoLink: string;
   githubLink: string;
 }
@@ -83,7 +84,7 @@ export const portfolioProjects: PortfolioProject[] = [
 ];
 
 export const projectCategories = [
-  { id: "all", name: "All Projects", count: 6 },
+  { id: "all", name: "All Projects", count: 7 },
   { id: "Frontend", name: "Frontend", count: 4 },
   { id: "Backend", name: "Backend", count: 2 },
   { id: "Full-Stack", name: "Full-Stack", count: 1 },

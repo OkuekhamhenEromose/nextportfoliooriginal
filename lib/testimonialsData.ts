@@ -4,11 +4,12 @@ import image3 from "@/public/images/testimonials/monicaholmsremmen.jpeg";
 import image4 from "@/public/images/testimonials/samuelokpe.jpeg";
 import image5 from "@/public/images/testimonials/michaelojemoron.jpeg";
 import image6 from "@/public/images/testimonials/nathanielnosa.jpeg";
+import { StaticImageData } from "next/image";
 
 export interface Testimonial {
   id: number;
   text: string;
-  image: any;
+  image: StaticImageData;
   name: string;
   post: string;
 }
