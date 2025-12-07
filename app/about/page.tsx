@@ -20,7 +20,7 @@ export default function About() {
         >
           <div className="max-w-[450px] sm:max-w-[400px] max-[375px]:max-w-[260px]">
             <Image
-              src="/image/IMG_8173.jpg"
+              src="/images/IMG_8173.jpg"
               alt="Charles Eromose"
               width={450}
               height={600}
